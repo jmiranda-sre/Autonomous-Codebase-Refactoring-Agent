@@ -5,10 +5,10 @@ A CLI tool that scans Python repositories, analyzes the AST to detect Clean Code
 ## How It Works
 
 ```
-┌─────────────┐    ┌──────────────┐    ┌─────────────┐    ┌──────────────┐
-│  1. SCAN     │───▶│  2. BRANCH    │───▶│ 3. REFACTOR │───▶│ 4. VALIDATE   │
-│  AST Analysis │    │  Git Safety   │    │ LLM + Apply │    │ Tests + Commit│
-└─────────────┘    └──────────────┘    └─────────────┘    └──────────────┘
+┌───────────────┐     ┌───────────────┐     ┌─────────────┐     ┌───────────────┐
+│  1. SCAN      │───▶│  2. BRANCH    │───▶│ 3. REFACTOR │───▶│ 4. VALIDATE   │
+│  AST Analysis │     │  Git Safety   │     │ LLM + Apply │     │ Tests + Commit│
+└───────────────┘     └───────────────┘     └─────────────┘     └───────────────┘
   Walk repo          Auto-create         Prompt LLM          Run pytest
   Parse AST          refactor/           Extract code        Pass → commit
   Detect smells      branch              Validate syntax    Fail → rollback
@@ -175,10 +175,10 @@ pytest tests/ -v --cov=refactor_agent --cov-report=term-missing
 ```
 $ refactor-agent scan ./legacy-project
 
-╭─────────────────────────────────────────────╮
-│        Refactor Agent — Scan Mode            │
+╭──────────────────────────────────────────────╮
+│        Refactor Agent — Scan Mode             │
 │ Scanning: /projects/legacy-project            │
-╰─────────────────────────────────────────────╯
+╰───────────────────────────────────────────────╯
 
           Scan Results
 ┌──────────────────┬───────────┬─────────┬─────────┐
