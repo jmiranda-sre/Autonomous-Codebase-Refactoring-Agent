@@ -1,0 +1,36 @@
+[llm]
+endpoint = "http://localhost:11434"
+model = "qwen2.5-coder:7b"
+provider = "ollama"
+temperature = 0.2
+max_tokens = 4096
+timeout = 120
+
+[scan]
+include_dirs = ["."]
+exclude_dirs = ["venv", ".venv", "node_modules", ".git", "__pycache__", ".mypy_cache", ".pytest_cache", "dist", "build", "egg-info"]
+include_patterns = ["*.py"]
+exclude_patterns = ["test_*.py", "_test.py", "conftest.py", "setup.py", "__init__.py"]
+
+[refactor]
+max_function_lines = 50
+max_function_params = 5
+max_cyclomatic_complexity = 10
+max_class_methods = 15
+max_class_lines = 300
+
+[git]
+branch_prefix = "refactor/agent"
+auto_branch = true
+commit_on_pass = true
+discard_on_fail = true
+
+[test]
+command = "pytest"
+args = ["-x", "--tb=short"]
+timeout = 300
+
+[report]
+format = "json"
+output_dir = "reports"
+save_prompts = true

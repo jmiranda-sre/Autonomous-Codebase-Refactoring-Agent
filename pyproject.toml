@@ -1,0 +1,44 @@
+[project]
+name = "refactor-agent"
+version = "0.1.0"
+description = "Autonomous Codebase Refactoring Agent — AST analysis + LLM-driven refactoring with safe Git workflow"
+requires-python = ">=3.9"
+license = {text = "MIT"}
+authors = [{name = "Autonomous Refactoring Agent Team"}]
+
+dependencies = [
+    "gitpython>=3.1.40",
+    "httpx>=0.27.0",
+    "toml>=0.10.2",
+    "rich>=13.7.0",
+    "structlog>=24.1.0",
+]
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=8.0.0",
+    "pytest-cov>=4.1.0",
+    "ruff>=0.2.0",
+    "mypy>=1.8.0",
+]
+
+[project.scripts]
+refactor-agent = "refactor_agent.cli:main"
+
+[build-system]
+requires = ["setuptools>=69.0"]
+build-backend = "setuptools.build_meta"
+
+[tool.ruff]
+line-length = 100
+target-version = "py39"
+
+[tool.ruff.lint]
+select = ["E", "F", "W", "I", "N", "UP", "B", "A", "SIM"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-v --tb=short"
