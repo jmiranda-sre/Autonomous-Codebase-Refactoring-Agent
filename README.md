@@ -175,7 +175,7 @@ pytest tests/ -v --cov=refactor_agent --cov-report=term-missing
 ```
 $ refactor-agent scan ./legacy-project
 
-╭──────────────────────────────────────────────╮
+╭───────────────────────────────────────────────╮
 │        Refactor Agent — Scan Mode             │
 │ Scanning: /projects/legacy-project            │
 ╰───────────────────────────────────────────────╯
